@@ -25,13 +25,13 @@ ChatBot is a simple rule-based chatbot implemented in Python. It engages in conv
 
 3. Follow the on-screen instructions to interact with the chatbot.
 
+## Configuration
+
+- Patterns: You can modify the conversation patterns and responses in the `patterns` list within the `chatbot.py` file.
+
 ## Requirements
 
 - Python 3.x
-
-## Contributing
-
-If you'd like to contribute to the development of this chatbot, please follow the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
