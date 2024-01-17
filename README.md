@@ -1,41 +1,47 @@
-# ChatBot
 
-ChatBot is a simple rule-based chatbot implemented in Python. It engages in conversations based on predefined patterns and responds accordingly. The chatbot is designed to handle various user inputs and provide appropriate responses.
+# ChatBot using Random Forest Classifier
 
-## Features
+## Introduction
+This Python code implements a simple chatbot using a Random Forest Classifier for intent recognition. The chatbot is designed to understand user input and provide appropriate responses based on pre-defined patterns and responses stored in a dataset.
 
-- Greetings: The chatbot can greet the user and engage in a conversation.
-- Pattern Matching: It recognizes specific patterns in user input and responds accordingly.
-- Farewell: The chatbot recognizes farewell commands and exits the conversation.
+## Code Overview
+The code consists of a main function `chatbot()` that initializes and trains the chatbot. Here's an overview of the key components:
 
-## Usage
+1. **Data Loading and Preprocessing**
+   - The code reads intent data from a JSON file (`intents.json`) and extracts relevant information.
+   - Label encoding is applied to convert textual tags into numeric format for training.
 
-1. Clone the repository to your local machine:
+2. **Random Forest Training**
+   - The patterns in the dataset are tokenized and transformed into a Bag-of-Words (BoW) representation using CountVectorizer.
+   - A Random Forest Classifier is trained on the BoW representations to predict the intent tags.
 
-    ```bash
-    git clone https://github.com/your-username/ChatBot.git
-    cd ChatBot
-    ```
+3. **User Input Processing**
+   - User input is preprocessed by removing punctuation and converting it to lowercase.
+   - TextBlob is used for spell correction.
 
-2. Run the `chatbot.py` script:
+4. **Intent Prediction and Response**
+   - The trained classifier predicts the intent tag for the user input.
+   - Based on the predicted tag, a response is randomly selected from the set of possible responses.
+   - If the predicted tag probability is below a threshold, a default "Sorry, I don't understand this!!!" response is given.
 
-    ```bash
-    python chatbot.py
-    ```
+5. **User Interaction Loop**
+   - The chatbot engages in a continuous loop, taking user input until the user types 'exit' to end the conversation.
 
-3. Follow the on-screen instructions to interact with the chatbot.
+## Dependencies
+- pandas
+- numpy
+- textblob
+- scikit-learn
+- string
 
-## Configuration
+## How to Run
+1. Ensure the required dependencies are installed.
+2. Place your intent data in a JSON file named `intents.json` with the structure specified in the code.
+3. Execute the code to start the chatbot interaction. Type 'exit' to end the conversation.
 
-- Patterns: You can modify the conversation patterns and responses in the `patterns` list within the `chatbot.py` file.
+## Additional Notes
+- The code uses a RandomForestClassifier for simplicity, and you may explore other classifiers for better performance.
+- Adjustments to the spell correction threshold and response probabilities can be made based on specific use cases.
 
-## Requirements
-
-- Python 3.x
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-Feel free to use and modify this chatbot for your own projects!
+Feel free to customize the code and dataset according to your needs.
 
